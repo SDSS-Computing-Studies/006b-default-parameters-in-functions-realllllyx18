@@ -14,7 +14,7 @@ def factorPair(num,factor):
     answer=float(num)/float(factor),str(factor)
     return answer
 
-def cosineLaw(a,b,,C):
+def cosineLaw(a,b,C):
     answer=math.sqrt(float(a)**2+float(b)**2-2*float(a)*float(b)*cos(c))
 
 
