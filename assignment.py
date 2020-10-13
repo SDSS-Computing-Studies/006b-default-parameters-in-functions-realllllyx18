@@ -18,13 +18,6 @@ def convertAngle(degree):
     angle = math.pi*float(degree)/180
     return angle
 
-def quadratic(a,b,c):
-    x1 = round((-float(b) + math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),2)
-    x2 = round((-float(b) - math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),2)
-    solution = [x1,x2]
-    solution.sort()
-    return solution
-
 def solution(List):
     if List[0] > 0:
         answer = List[0]
@@ -32,8 +25,31 @@ def solution(List):
         answer = List[1]
     return answer
 
+def quadratic(a,b,c):
+    x1 = round((-float(b) + math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),2)
+    x2 = round((-float(b) - math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),2)
+    solution = [x1,x2]
+    solution.sort()
+    return solution
+
+def cosineLaw(x,y,angle,oppositeSide=False):
+    if oppositeSide==False:
+        x<
+        z=math.sqrt(2*float(x)*float(y)*math.cos(convertAngle(angle))-float(x)**2+float(y)**2)
+    else:
+        z=math.sqrt(float(x)**2+float(y)**2-2*float(x)*float(y)*math.cos(convertAngle(angle)))
+    return z
+
+
+
+    
+
+
+
 
 print(convertAngle(30))
 print(solution([-8.9, 5.3]))
 print(quadratic(3,5,-8))
+print(cosineLaw(6,9,34))
+print(cosineLaw(10,3,50,oppositeSide=False))
 
