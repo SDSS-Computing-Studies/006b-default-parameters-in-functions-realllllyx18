@@ -1,18 +1,8 @@
-#! python3
-
-import assignment
-
-def test1():
-  assert assignment.function() == expected output
-
-def test2():
-  assert "needle" in assignment.function()
-  assert "needle2" in assignment.function(),"error Message"
 #!python3
 import assignment
 
 def test1():
-  x = assignment.toRadians(30)
+  x = assignment.convertAngle(30)
   assert round(x,4) == 0.5236
 
 def test2():
