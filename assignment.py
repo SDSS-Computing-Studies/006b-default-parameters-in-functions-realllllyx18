@@ -15,8 +15,15 @@ def factorPair(num,a):
     return answer
 
 def convertAngle(degree):
-    angle = math.pi*float(degree)/180
+    angle = round(math.pi*float(degree)/180,4)
     return angle
+
+def quadratic(a,b,c):
+    x1 = round((-float(b) + math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),1)
+    x2 = round((-float(b) - math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),2)
+    solution = [x1,x2]
+    solution.sort()
+    return solution
 
 def solution(List):
     if List[0] > 0:
@@ -25,22 +32,19 @@ def solution(List):
         answer = List[1]
     return answer
 
-def quadratic(a,b,c):
-    x1 = round((-float(b) + math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),2)
-    x2 = round((-float(b) - math.sqrt(float(b)**2 - 4*float(a)*float(c)))/(2*float(a)),2)
-    solution = [x1,x2]
-    solution.sort()
-    return solution
-
 def cosineLaw(x,y,angle,oppositeSide = True):
     z = round(math.sqrt(float(x)**2 + float(y)**2 - 2*float(x)*float(y)*math.cos(convertAngle(angle))),1)
     if oppositeSide == False:
+        # c^2 = a^2 + b^2 - 2abcosC
+        # a^2 - 2abcosC + b^2 - c^2
+        # if x = the oppositeSide
         a = 1
         b = -2*float(y)*math.cos(convertAngle(angle))
         c = float(y)**2 - float(x)**2
         if float(b)**2 - 4*float(a)*float(c) >= 0:
             z = solution(quadratic(a,b,c))
         else:
+            # if y = the oppositeSide
             a = 1
             b = -2*float(x)*math.cos(convertAngle(angle))
             c = float(x)**2 - float(y)**2
@@ -49,15 +53,9 @@ def cosineLaw(x,y,angle,oppositeSide = True):
     return z
 
 
-
-    
-
-
-
-
 print(convertAngle(30))
 print(solution([-8.9, 5.3]))
 print(quadratic(3,5,-8))
 print(cosineLaw(6,9,34))
-print(cosineLaw(10,3,50,oppositeSide=False))
+print(cosineLaw(10,3,50,oppositeSide = False))
 
