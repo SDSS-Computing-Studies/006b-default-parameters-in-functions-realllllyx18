@@ -32,12 +32,20 @@ def quadratic(a,b,c):
     solution.sort()
     return solution
 
-def cosineLaw(x,y,angle,oppositeSide=False):
-    if oppositeSide==False:
-        x<
-        z=math.sqrt(2*float(x)*float(y)*math.cos(convertAngle(angle))-float(x)**2+float(y)**2)
-    else:
-        z=math.sqrt(float(x)**2+float(y)**2-2*float(x)*float(y)*math.cos(convertAngle(angle)))
+def cosineLaw(x,y,angle,oppositeSide = True):
+    z = round(math.sqrt(float(x)**2 + float(y)**2 - 2*float(x)*float(y)*math.cos(convertAngle(angle))),1)
+    if oppositeSide == False:
+        a = 1
+        b = -2*float(y)*math.cos(convertAngle(angle))
+        c = float(y)**2 - float(x)**2
+        if float(b)**2 - 4*float(a)*float(c) >= 0:
+            z = solution(quadratic(a,b,c))
+        else:
+            a = 1
+            b = -2*float(x)*math.cos(convertAngle(angle))
+            c = float(x)**2 - float(y)**2
+            z = solution(quadratic(a,b,c))
+
     return z
 
 
